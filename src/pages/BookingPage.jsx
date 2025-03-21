@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import BookingForm from '../components/BookingForm';
+import '../styles/booking.css';
 
 function BookingPage() {
   const { id } = useParams();

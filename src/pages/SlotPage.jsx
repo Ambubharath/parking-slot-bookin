@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import '../styles/slot.css';
 
 const SlotPage = () => {
   const { id } = useParams(); // Get parking ID from URL
@@ -30,21 +31,19 @@ const SlotPage = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+    <div className="slot-container">
       {/* Heading */}
       <h1 className="text-3xl font-bold mb-4">Select Slot for Parking {id}</h1>
       <h2 className="text-xl mb-4">Select Your Slot</h2>
 
       {/* Slot Grid */}
-      <div className="grid grid-cols-6 gap-4 mb-4">
+      <div className="slot-grid">
         {Array.from({ length: totalSlots }, (_, index) => (
           <button
             key={index + 1}
             onClick={() => selectSlot(index + 1)}
-            className={`w-12 h-12 flex items-center justify-center border border-gray-400 rounded ${
-              selectedSlot === index + 1
-                ? 'bg-green-500 text-white border-green-600' // Green when selected
-                : 'bg-gray-200 hover:bg-blue-300' // Hover color
+            className={`slot-button ${
+              selectedSlot === index + 1 ? 'slot-selected' : ''
             }`}
           >
             {index + 1}
@@ -53,10 +52,7 @@ const SlotPage = () => {
       </div>
 
       {/* Confirm Button */}
-      <button
-        onClick={confirmSlot}
-        className="mt-4 w-12 h-12 bg-black text-white rounded-md hover:bg-gray-800 flex items-center justify-center"
-      >
+      <button onClick={confirmSlot} className="confirm-button">
         ✔
       </button>
     </div>

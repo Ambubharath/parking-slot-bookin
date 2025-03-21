@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import Banner from '../components/Banner';
+import '../styles/main.css';
 
 const parkingSpaces = [
   { id: 1, name: 'Parking A', car: 5, bike: 10 },
